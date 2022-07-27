@@ -1,26 +1,19 @@
-import { useEffect } from "react"
-import { useReducer } from "react"
+import { useTodos } from "../hooks";
 import { TodoAdd } from "./TodoAdd"
 import { TodoList } from "./TodoList"
-import { todoReducer } from "./todoReducer"
-import { useTodos } from "./useTodos"
-
 
 
 export const TodoApp = () => {
 
-
-    const{todos, handleDeleteTodo, handleNewTodo, handleToggleTodo} = useTodos();
-    
-
+    const{todos, todosCount, pendingTodosCount, handleDeleteTodo, handleNewTodo, handleToggleTodo} = useTodos();
+    //todos.filter( todo => !todo.done).length
+    // todos.length
     return (
-
 
         <>
         
-            <h1>TodoApp 10, <small>pendientes: 2 </small></h1>
+            <h1>TodoApp {todosCount}, <small>pendientes: {pendingTodosCount} </small></h1>
             <hr />
-
 
             <div className="row">
                 <div className="col-7">

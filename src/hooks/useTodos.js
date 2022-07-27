@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from "react";
-import { todoReducer } from "./todoReducer";
+import { todoReducer } from "../08-useReducer/todoReducer";
+
 
 
 const initialState = [];
@@ -12,6 +13,9 @@ export const useTodos = () => {
 
 
     const [ todos, dispatch ] = useReducer( todoReducer , initialState, init);
+
+    let pendingTodosCount = todos.filter( todo => !todo.done).length
+    let todosCount = todos.length
 
 
     useEffect(() => {
@@ -61,6 +65,8 @@ export const useTodos = () => {
     return {
 
         todos,
+        todosCount,
+        pendingTodosCount,
         handleNewTodo,
         handleDeleteTodo,
         handleToggleTodo,
