@@ -27,7 +27,7 @@ export const TodoApp = () => {
                     <h4>Agregar TODO</h4>
                     <hr />
 
-                    <TodoAdd onNewTodo={todo=>handleNewTodo(todo)} />
+                    <TodoAdd onNewTodo={handleNewTodo} />
 
                 </div>
             </div>
